@@ -17,7 +17,17 @@
     
 </head>
 <body>
-
+    <nav id="enav">
+        <a href="/" class="elog">{{params['heading']}}</a>
+        <div id="poech">
+        <a href="/edit/0"><button>add post</button></a>
+        <a href="/fatchuser"><button>users</button></a>
+        <a href="/admin"><button>home</button></a>
+        <a href="/logout"><button>logout</button></a>
+        <a href="" class="btnrse"><button onclick="emainclo()">x</button></a>
+      </div>
+        <a href="#" class="emainicoe" ><img src="{{ url_for('static', filename='../static/images/menu.svg')}}" onclick="eopenmain()"></a>
+      </nav>
     {% block body %} {% endblock %}
 
 </body>

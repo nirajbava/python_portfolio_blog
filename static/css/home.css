@@ -212,7 +212,8 @@ header{
     justify-content: space-evenly;
     list-style: none;
     flex-direction: row;
-    left: 50%;
+    font-family: 'Roboto Slab', serif;
+    left: 40%;
     top: 5px;
     margin-bottom: 10px;
     text-transform: capitalize;
@@ -1137,7 +1138,6 @@ margin-bottom: 5%;
 #confmain{
     width: 100%;
     height: 500px;
-    background-color: whitesmoke;
     font-size: 30px;
     text-transform: capitalize;
     font-family: 'Fira Sans', sans-serif;
@@ -1145,6 +1145,13 @@ margin-bottom: 5%;
     align-items: center;
     padding-top: 10%;
     border-radius: 5px;
+    background-size: cover;
+    color: white;
+}
+
+#confmain a{
+    text-decoration: none;
+    color: white;
 }
 
 

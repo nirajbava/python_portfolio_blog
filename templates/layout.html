@@ -42,9 +42,7 @@
                <a href="/projects"><p><img src="{{ url_for('static', filename='../static/images/programming.svg')}}" alt="blog">{{params['Post_Page_menu_name']}}</p></a>
                <a href="/contact"><p><img src="{{ url_for('static', filename='../static/images/blog.svg')}}" alt="code">contact</p></a>
 
-               <button class="btn11">sign in</button>
-               <br>
-               <button class="btn22">log in</button>
+               <button class="btn11"><a href="{{btnlink}}">{{btntext}}</a></button>
                </div>
 
             </div>
@@ -90,7 +88,7 @@
 <!-- contact info section start here -->
 <div id="contactifo">
     <div id="cft">contact info</div>
-    <div id="confmain">
+    <div id="confmain"  style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('{{ url_for('static', filename ='../static/images/myimg.jpg')}}')  ">
         <div>
             email : <a href="{{params['Contact_Info_Section_Email_url']}}"> {{params['Contact_Info_Section_Email']}} </a>
             <br>

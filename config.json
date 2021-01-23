@@ -2,7 +2,7 @@
     "params":
     {
         "local_server": "True",
-        "local_uri": "mysql://root:@localhost/superweb",
+        "local_uri": "mysql://root:@localhost/pythonblog",
         "prod_uri": "mysql://root:@localhost/superweb",
         "admin_id":"superweb",
         "admin_password":"niraj@#&123",

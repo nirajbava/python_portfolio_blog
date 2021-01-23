@@ -78,12 +78,16 @@ def home():
 def post_route(post_slug):
     if 'username' in session:
         post = Posts.query.filter_by(slug=post_slug).first()
-        return render_template('post.html', params=params, post=post)
+        btntext = "sign out"
+        btnlink = "/signout"
+        return render_template('post.html', params=params, post=post, btntext=btntext, btnlink=btnlink)
     else:
+        btntext = "sign in"
+        btnlink = "/signin"
         errorlink = "/projects"
         errormsg = "you need to buy this course and sign in to access this course...!"
         errorbtntext = "click here to buy to courses"
-        return render_template("error.html", params=params, errorlink=errorlink, errormsg=errormsg, errorbtntext=errorbtntext)
+        return render_template("error.html", params=params, errorlink=errorlink, errormsg=errormsg, errorbtntext=errorbtntext, btntext=btntext, btnlink=btnlink)
 
 
 
@@ -95,7 +99,7 @@ def project():
         btnlink = "/signout"
         return render_template('projects.html', params=params, posts_for_project_page=posts_for_project_page, btntext=btntext, btnlink=btnlink)
     else:
-        posts =  Posts.query.filter_by().all()[0:params["post_section_feature_post_number"]]
+        posts_for_project_page =  Posts.query.filter_by().all()[0:params["post_section_feature_post_number"]]
         btntext = "sign in"
         btnlink = "/signin"
         return render_template('projects.html', params=params, posts_for_project_page=posts_for_project_page, btntext=btntext, btnlink=btnlink)
@@ -248,6 +252,22 @@ def signout():
     session.pop('username')
     return redirect('/')
 
+
+@app.route('/fatchuser', methods = ['GET', 'POST'])
+def fathuser():
+    rerror=''
+    if('user' in session and session['user'] == params['admin_id']):
+        posts = Accounts.query.all()
+        return render_template('fatchuser.html', params=params, posts=posts)
+
+
+@app.route('/dele/<string:mo_no>', methods = ['GET', 'POST'])
+def dele(mo_no):
+    if('user' in session and session['user'] == params['admin_id']):
+        account = Accounts.query.filter_by(mo_no=mo_no).first()
+        db.session.delete(account)
+        db.session.commit()
+    return redirect('/fatchuser')
 
 
 app.run(debug=True)

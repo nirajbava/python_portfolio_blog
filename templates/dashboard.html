@@ -1,14 +1,6 @@
 {% extends "adminlayout.html" %}
 {% block body %}
-<nav id="enav">
-  <a href="/" class="elog">{{params['heading']}}</a>
-  <div id="poech">
-  <a href="/edit/0"><button>add post</button></a>
-  <a href="/logout"><button>logout</button></a>
-  <a href="" class="btnrse"><button onclick="emainclo()">x</button></a>
-</div>
-  <a href="#" class="emainicoe" ><img src="{{ url_for('static', filename='../static/images/menu.svg')}}" onclick="eopenmain()"></a>
-</nav>
+
 <!-- header section start here -->
 <header id='mainpost' style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('{{ url_for('static', filename ='../static/blogpostthumbnail/banner1.jpg')}}')  " onmouseover="enavpo()">
     <h1 class="postheading">Admin Pannel</h1>
