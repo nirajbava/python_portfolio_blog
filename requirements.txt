@@ -19,7 +19,7 @@ instamojo-wrapper==1.2.0
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-mysqlclient @ file:///C:/Users/Administrator/Downloads/mysqlclient-1.4.6-cp27-cp27m-win32.whl
+mysqlclient== 1.4.6
 numpy==1.16.6
 pandas==0.24.2
 pathlib2==2.3.5
