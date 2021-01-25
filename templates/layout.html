@@ -41,19 +41,22 @@
                <a href="/#about"><p> <img src="{{ url_for('static', filename='../static/images/information-button.svg')}}" alt="about"> about</p></a>
                <a href="/projects"><p><img src="{{ url_for('static', filename='../static/images/programming.svg')}}" alt="blog">{{params['Post_Page_menu_name']}}</p></a>
                <a href="/contact"><p><img src="{{ url_for('static', filename='../static/images/blog.svg')}}" alt="code">contact</p></a>
+              
+               <button class="btn11" id="btn222"><a href="{{btnlinks}}">{{btntexts}}</a></button>
+               <button class="btn11" id="btn111"><a href="{{btnlink}}">{{btntext}}</a></button>
 
-               <button class="btn11"><a href="{{btnlink}}">{{btntext}}</a></button>
                </div>
 
             </div>
 
         <a href="/" id="log" class="logo"><h1>{{params['heading']}}</h1></a>
 
-     <ul>
+     <ul id="ulhome">
         <a href="/"><li>Home</li></a>
         <a href="/#about"><li>about</li></a>
         <a href="/projects"><li>project</li></a>
         <a href="/contact"><li>contact</li></a>
+        <a href="{{btnlink}}"><li id="btnsign">{{btntexts}}</li></a>
      </ul>
      </nav>
 

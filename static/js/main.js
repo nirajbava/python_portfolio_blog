@@ -70,3 +70,16 @@ function meno(){
 function alertmsg(){
     alert("your massage is submited.....")
 }
+
+var btn222 = document.getElementById("btn222")
+var btn111 = document.getElementById("btn111")
+var btnsign = document.getElementById("btnsign")
+var ulhome = document.getElementById("ulhome")
+
+
+if(btn111.innerText == "sign out"){
+    btn222.style.display = "none";
+    btnsign.style.display = "none";
+    ulhome.style.left = "40%";
+}
+

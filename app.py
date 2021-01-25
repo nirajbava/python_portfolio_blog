@@ -67,12 +67,16 @@ def home():
         posts =  Posts.query.filter_by().all()[0:params["post_section_feature_post_number"]]
         btntext = "sign out"
         btnlink = "/signout"
-        return render_template('index.html', params=params, posts=posts, btntext=btntext, btnlink=btnlink)
+        btntexts = ""
+        btnlinks = ""
+        return render_template('index.html', params=params, posts=posts, btntext=btntext, btnlink=btnlink, btntexts=btntexts, btnlinks=btnlinks)
     else:
         posts =  Posts.query.filter_by().all()[0:params["post_section_feature_post_number"]]
         btntext = "sign in"
         btnlink = "/signin"
-        return render_template('index.html', params=params, posts=posts, btntext=btntext, btnlink=btnlink)
+        btntexts = "sign up"
+        btnlinks = "/signuppage"
+        return render_template('index.html', params=params, posts=posts, btntext=btntext, btnlink=btnlink, btntexts=btntexts, btnlinks=btnlinks)
 
 @app.route("/post/<string:post_slug>", methods = ['GET'])
 def post_route(post_slug):
@@ -80,14 +84,18 @@ def post_route(post_slug):
         post = Posts.query.filter_by(slug=post_slug).first()
         btntext = "sign out"
         btnlink = "/signout"
-        return render_template('post.html', params=params, post=post, btntext=btntext, btnlink=btnlink)
+        btntexts = ""
+        btnlinks = ""
+        return render_template('post.html', params=params, post=post, btntext=btntext, btnlink=btnlink, btntexts=btntexts, btnlinks=btnlinks)
     else:
         btntext = "sign in"
         btnlink = "/signin"
+        btntexts = "sign up"
+        btnlinks = "/signuppage"
         errorlink = "/projects"
-        errormsg = "you need to buy this course and sign in to access this course...!"
-        errorbtntext = "click here to buy to courses"
-        return render_template("error.html", params=params, errorlink=errorlink, errormsg=errormsg, errorbtntext=errorbtntext, btntext=btntext, btnlink=btnlink)
+        errormsg = "you need to sign up to access this project...!"
+        errorbtntext = "click here to sign up"
+        return render_template("error.html", params=params, errorlink=errorlink, errormsg=errormsg, errorbtntext=errorbtntext, btntext=btntext, btnlink=btnlink, btntexts=btntexts, btnlinks=btnlinks)
 
 
 
@@ -97,12 +105,16 @@ def project():
         posts_for_project_page = Posts.query.filter_by().all()
         btntext = "sign out"
         btnlink = "/signout"
-        return render_template('projects.html', params=params, posts_for_project_page=posts_for_project_page, btntext=btntext, btnlink=btnlink)
+        btntexts = ""
+        btnlinks = ""
+        return render_template('projects.html', params=params, posts_for_project_page=posts_for_project_page, btntext=btntext, btnlink=btnlink, btntexts=btntexts, btnlinks=btnlinks)
     else:
         posts_for_project_page =  Posts.query.filter_by().all()[0:params["post_section_feature_post_number"]]
         btntext = "sign in"
         btnlink = "/signin"
-        return render_template('projects.html', params=params, posts_for_project_page=posts_for_project_page, btntext=btntext, btnlink=btnlink)
+        btntexts = "sign up"
+        btnlinks = "/signuppage"
+        return render_template('projects.html', params=params, posts_for_project_page=posts_for_project_page, btntext=btntext, btnlink=btnlink, btntexts=btntexts, btnlinks=btnlinks)
 
 @app.route('/admin', methods = ['GET', 'POST'])
 def admin():
@@ -182,6 +194,8 @@ def contacts():
     if 'username' in session:
         btntext = "sign out"
         btnlink = "/signout"
+        btntexts = ""
+        btnlinks = ""
         if(request.method=='POST'):
             '''Add entry to the database'''
             name = request.form.get('name')
@@ -196,11 +210,13 @@ def contacts():
                             recipients = [params['gmail_id']],
                             body = "Name : "+name+ "\n"+"Number : "+number+"\n"+"\n"+"\t"+message
                             )
-        return render_template('contact.html', params=params, btntext=btntext, btnlink=btnlink)
+        return render_template('contact.html', params=params, btntext=btntext, btnlink=btnlink, btntexts=btntexts, btnlinks=btnlinks)
     else:
+        btntexts = "sign up"
+        btnlinks = "/signuppage"
         btntext = "sign in"
         btnlink = "/signin"
-        return render_template('contact.html', params=params, btntext=btntext, btnlink=btnlink)
+        return render_template('contact.html', params=params, btntext=btntext, btnlink=btnlink, btntexts=btntexts, btnlinks=btnlinks)
 
 
 @app.route("/signuppage", methods = ['GET', 'POST'])
